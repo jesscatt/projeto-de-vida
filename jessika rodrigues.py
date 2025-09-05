@@ -1,68 +1,87 @@
 class Pessoa:
-    def __init__(self, nome, idade):
-        self._nome = nome   # encapsulamento
+    def __init__(self, nome, idade, signo, paixoes):
+        self._nome = nome
         self._idade = idade
+        self._signo = signo
+        self._paixoes = paixoes
 
-    def viver(self):
-        print(f"🌱 {self._nome}, com {self._idade} aninhos, está começando a viver sua jornada...")
-
-    def estudar(self):
-        print(f"📚 {self._nome} está aprendendo coisas novas!")
-
-    def trabalhar(self):
-        print(f"💼 {self._nome} ainda não trabalha.")
-
-    def hobby(self):
-        print(f"🎨 {self._nome} tem seus passatempos preferidos.")
+    def apresentacao(self):
+        print("🌟 Minha História Estilo 'Todo Mundo Odeia o Jess' 🌟\n")
+        print(f"Oi, eu sou {self._nome}, tenho {self._idade} anos e sou do signo de {self._signo}.")
+        print(f"Amo: {', '.join(self._paixoes)}.\n")
+        print("A vida nem sempre foi fácil, mas foi sempre cheia de histórias que vale a pena contar...\n")
 
 
-# ======= Fases =======
+class LinhaDoTempo:
+    def __init__(self, periodo, narrativa, momentos):
+        self.periodo = periodo
+        self.narrativa = narrativa
+        self.momentos = momentos
 
-class Crianca(Pessoa):
-    def estudar(self):
-        print(f"✏️ {self._nome} está aprendendo a ler e escrever na escola.")
-
-    def hobby(self):
-        print(f"🐴 {self._nome} adora brincar e ama cavalos!")
-
-    def trabalhar(self):
-        print(f"😴 {self._nome} seu maior trabalho é brincar e sonhar.")
-
-
-class Adolescente(Pessoa):
-    def estudar(self):
-        print(f"🏀 {self._nome} estuda no ensino médio e joga basquete.")
-
-    def hobby(self):
-        print(f"🎶 {self._nome} gosta de sair com os amigos, olhar series e filmes.")
-
-    def trabalhar(self):
-        print(f"🌟 {self._nome} começa a ter responsabilidades e pensar no futuro, em quais escolhar tomar em sua carreira profissional.")
+    def mostrar(self):
+        print("──────────────────────────────")
+        print(f"📖 {self.periodo}: {self.narrativa}")
+        for momento in self.momentos:
+            print(f"✨ No momento {momento}")
 
 
-class Adulto(Pessoa):
-    def estudar(self):
-        print(f"🎓 {self._nome} está iniciando sua faculdade e se dedicando muito a conseguir seu primeiro emprego.")
+# ======= Linha do Tempo com frases de efeito ajustadas =======
+historia = [
+    LinhaDoTempo("2001 - 2006",
+        "Comecei a descobrir o mundo, tropeçando e aprendendo ao mesmo tempo.",
+        ["com 5 anos, caí de bicicleta e grudaram esparadrapo nos meus machucados; fiquei brava e me tranquei no banheiro pra dormir.",
+         "com 6 anos, caí do cavalo tentando correr gado com meu pai; levantei e quis continuar, mas meu pai não contou para minha mãe."]),
 
-    def hobby(self):
-        print(f"⚡ {self._nome} gosta de esportes, família, amigos e planejar o futuro.")
+    LinhaDoTempo("2007 - 2008",
+        "Aprendi que ser pequena não significa ser fraca.",
+        ["com 7 para 8 anos, taquei uma pedra em um colega que me chamou de baixinha."]),
 
-    def trabalhar(self):
-        print(f"💼 {self._nome} já trabalha e busca crescer profissionalmente.")
+    LinhaDoTempo("2009 - 2013",
+        "Descobri paixões, música, rodeio e meu amor por tecnologia.",
+        ["com 11 para 12, entrei para a banda do colégio.",
+         "com 12, comecei a gostar muito de rodeio e da vida de campo.",
+         "comecei a laçar e a me interessar por tecnologia.",
+         "fiz um curso básico de TI.",
+         "com uns 14 anos, pensei em ser veterinária, mas não consegui lidar com o sacrifício de um animal; terminei o curso e segui outro caminho."]),
+
+    LinhaDoTempo("2014 - 2016",
+        "Comecei a sonhar e a me desafiar mais.",
+        ["com 15 anos, ganhei meu primeiro laço prenda.",
+         "com 16 anos, comecei no IFF, jogava basquete, me mudei de cidade e precisei me virar sozinha a 500 km de casa."]),
+
+    LinhaDoTempo("2017 - 2019",
+        "Entre desafios e conquistas, aprendi a me cuidar e não desistir.",
+        ["com 17 anos, meu time passou para a segunda fase do JERGS.",
+         "fiquei internada uma semana por não me alimentar direito 😅",
+         "com 18 anos, terminando o curso, ficamos em 3º lugar no JEIF."]),
+
+    LinhaDoTempo("2019 - 2021",
+        "A vida adulta chegou de repente, trazendo mudanças e oportunidades.",
+        ["com 19 anos, entrei em colapso pensando: 'o que vou fazer agora?'",
+         "na pandemia, comecei a estudar outras coisas e tive meu primeiro emprego cuidando de um garotinho.",
+         "no final de 2020, descobri a AMF pelo Facebook, visitei e me apaixonei. Me matriculei um dia antes do Natal 🎄."]),
+
+    LinhaDoTempo("2021 - 2025",
+        "Faculdade, trabalho, aventuras e experiências inesquecíveis.",
+        ["em 2021, comecei a faculdade e logo em seguida já estava empregada em um projeto da FAM, aprendendo muito na prática.",
+         "em 2022, comecei na EVO e foi só sucesso!",
+         "em 2024, nasceu a ideia de viajar; em 2025, realizei meu sonho.",
+         "comecei a namorar em 2021, mas terminei antes da viagem; meus amigos me apoiaram e me incentivaram, e foi uma experiência incrível.",
+         "comecei meu TCC sobre rodeio, porque sou maluca e amo isso."])
+]
 
 
 # ======= Programa Principal =======
 def main():
-    crianca = Crianca("Jess", 7)
-    adolescente = Adolescente("Jess", 15)
-    adulto = Adulto("Jess", 21)
+    jess = Pessoa("Jessika", 24, "Aquário", ["cavalos", "gatinhos", "tecnologia", "música", "família"])
+    jess.apresentacao()
 
-    for fase in [crianca, adolescente, adulto]:
-        print("──────────────────────────────")
-        fase.viver()
-        fase.estudar()
-        fase.hobby()
-        fase.trabalhar()
+    for periodo in historia:
+        periodo.mostrar()
+
+    print("\n🌈 Conclusão 🌈")
+    print("Hoje me sinto mais renovada e feliz com tudo que vivi.")
+    print("Que este final de ano seja incrível e cheio de novas histórias para contar! 💖")
 
 
 if __name__ == "__main__":
